@@ -19,6 +19,8 @@ class ViewController: UIViewController,UITableViewDataSource,UISearchBarDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title="Animals"
+        
         //csvファイル"AnimalInfo.csv"から動物のデータを2次元配列に読み込む
         if let csvPath=Bundle.main.path(forResource:"AnimalInfo",ofType:"csv"){
             do{
@@ -34,12 +36,11 @@ class ViewController: UIViewController,UITableViewDataSource,UISearchBarDelegate
         }
         
         //items.sort(by:{$0[0]<$1[0]}) //csvファイルから読み込んだ動物のデータを名前の五十音順に並べ替える
-        //items.reverse()
+        items.reverse()
         
         tableView.dataSource=self
         
         searchBar.delegate=self
-        //searchBar.showsCancelButton=true
         searchBar.enablesReturnKeyAutomatically=false
         searchResult=items
         }
@@ -104,5 +105,7 @@ class ViewController: UIViewController,UITableViewDataSource,UISearchBarDelegate
         searchBar.showsCancelButton=true
         return true
     }
+    
+    
 }
 
