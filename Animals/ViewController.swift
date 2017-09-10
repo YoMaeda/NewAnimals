@@ -39,9 +39,10 @@ class ViewController: UIViewController,UITableViewDataSource,UISearchBarDelegate
         tableView.dataSource=self
         
         searchBar.delegate=self
+        //searchBar.showsCancelButton=true
         searchBar.enablesReturnKeyAutomatically=false
         searchResult=items
-    }
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,10 +64,46 @@ class ViewController: UIViewController,UITableViewDataSource,UISearchBarDelegate
     override func prepare(for segue:UIStoryboardSegue,sender:Any?){
         if let selectedRow=tableView.indexPathForSelectedRow{
             let controller=segue.destination as! DetailViewController
-            controller.info=items[selectedRow.row]
+            controller.info=searchResult[selectedRow.row]
         }
     }
     
     
+    //検索ボタンを押した時の挙動
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true) //キーボードを閉じる
+    }
+    
+    //キャンセルボタンが押された時の挙動
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton=false
+        searchBar.resignFirstResponder()
+        searchBar.text=""
+        searchResult=items
+        tableView.reloadData()
+    }
+    
+    //テキストを変更した時の挙動
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchResult.removeAll()
+        
+        if searchBar.text==""{
+            searchResult=items //検索文字が未入力の時はすべてを表示
+        }
+        else{
+            for data in items{
+                if data[0].contains(searchBar.text!){
+                 searchResult.append(data)
+                }
+            }
+        }
+        
+        tableView.reloadData() //表示データを再度読み込む
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton=true
+        return true
+    }
 }
 
