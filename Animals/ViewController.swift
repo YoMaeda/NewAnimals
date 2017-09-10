@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITableViewDataSource{
+class ViewController: UIViewController,UITableViewDataSource,UISearchBarDelegate{
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var items:[[String]]=[]
+    var searchResult:[[String]]=[]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,19 +37,25 @@ class ViewController: UIViewController,UITableViewDataSource{
         items.reverse()
         
         tableView.dataSource=self
+        
+        searchBar.delegate=self
+        searchBar.enablesReturnKeyAutomatically=false
+        searchResult=items
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    //データの個数を返す
     func tableView(_ tableView:UITableView,numberOfRowsInSection section:Int)->Int{
-        return items.count
+        return searchResult.count
     }
     
+    //データを返す
     func tableView(_ tableView:UITableView,cellForRowAt indexPath:IndexPath)->UITableViewCell{
         let cell:UITableViewCell!=tableView.dequeueReusableCell(withIdentifier:"NameCell")
-        cell.textLabel?.text=items[indexPath.row][0]
+        cell.textLabel?.text=searchResult[indexPath.row][0]
         return cell
     }
     
@@ -58,5 +66,7 @@ class ViewController: UIViewController,UITableViewDataSource{
             controller.info=items[selectedRow.row]
         }
     }
+    
+    
 }
 
