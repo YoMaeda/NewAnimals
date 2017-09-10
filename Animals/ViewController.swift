@@ -68,7 +68,6 @@ class ViewController: UIViewController,UITableViewDataSource,UISearchBarDelegate
         }
     }
     
-    
     //検索ボタンを押した時の挙動
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true) //キーボードを閉じる
@@ -76,9 +75,9 @@ class ViewController: UIViewController,UITableViewDataSource,UISearchBarDelegate
     
     //キャンセルボタンが押された時の挙動
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text=""
         searchBar.showsCancelButton=false
         searchBar.resignFirstResponder()
-        searchBar.text=""
         searchResult=items
         tableView.reloadData()
     }
