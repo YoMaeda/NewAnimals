@@ -12,6 +12,8 @@
 		AF123FD61F64142B00472CEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF123FD41F64142B00472CEE /* Main.storyboard */; };
 		AF123FD81F64142B00472CEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF123FD71F64142B00472CEE /* Assets.xcassets */; };
 		AF123FDB1F64142B00472CEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF123FD91F64142B00472CEE /* LaunchScreen.storyboard */; };
+		AF123FE31F64146900472CEE /* AnimalInfo.csv in Resources */ = {isa = PBXBuildFile; fileRef = AF123FE21F64146900472CEE /* AnimalInfo.csv */; };
+		AF123FE51F64165300472CEE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF123FE41F64165300472CEE /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		AF123FD71F64142B00472CEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF123FDA1F64142B00472CEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF123FDC1F64142B00472CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF123FE21F64146900472CEE /* AnimalInfo.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AnimalInfo.csv; path = ../AnimalInfo.csv; sourceTree = "<group>"; };
+		AF123FE41F64165300472CEE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +58,11 @@
 		AF123FCF1F64142B00472CEE /* Animals */ = {
 			isa = PBXGroup;
 			children = (
+				AF123FE21F64146900472CEE /* AnimalInfo.csv */,
 				AF123FD01F64142B00472CEE /* AppDelegate.swift */,
 				AF123FD21F64142B00472CEE /* ViewController.swift */,
 				AF123FD41F64142B00472CEE /* Main.storyboard */,
+				AF123FE41F64165300472CEE /* DetailViewController.swift */,
 				AF123FD71F64142B00472CEE /* Assets.xcassets */,
 				AF123FD91F64142B00472CEE /* LaunchScreen.storyboard */,
 				AF123FDC1F64142B00472CEE /* Info.plist */,
@@ -125,6 +131,7 @@
 			files = (
 				AF123FDB1F64142B00472CEE /* LaunchScreen.storyboard in Resources */,
 				AF123FD81F64142B00472CEE /* Assets.xcassets in Resources */,
+				AF123FE31F64146900472CEE /* AnimalInfo.csv in Resources */,
 				AF123FD61F64142B00472CEE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF123FE51F64165300472CEE /* DetailViewController.swift in Sources */,
 				AF123FD31F64142B00472CEE /* ViewController.swift in Sources */,
 				AF123FD11F64142B00472CEE /* AppDelegate.swift in Sources */,
 			);
